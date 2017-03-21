@@ -15,12 +15,12 @@ def color(h: int) -> str:
 
 def step(event: tkinter.Event) -> None:
     CANVAS.delete("all")
-    ex = event.x
-    ey = event.y
+    ex = event.x - 2
+    ey = event.y - 2
     for i in range(SQUARES, -1, -1):
-        x = ex - ex % 2 ** i
-        y = ey - ey % 2 ** i
-        CANVAS.create_rectangle(x, y, x + 2 ** i, y + 2 ** i, fill=color(i * 25))
+        x = 2 + ex - ex % 2 ** i
+        y = 2 + ey - ey % 2 ** i
+        CANVAS.create_rectangle(x, y, x + 2 ** i - 1, y + 2 ** i - 1, fill=color(i * 28))
 
 
 def main() -> None:
