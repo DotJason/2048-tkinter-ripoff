@@ -9,6 +9,7 @@ MASTER = tkinter.Tk()
 MASTER.title("2048 tkinter ripoff")
 CANVAS = tkinter.Canvas(MASTER, bg="white", width=FIELD_WIDTH * CELL_SIDE + 1, height=FIELD_HEIGHT * CELL_SIDE + 1)
 
+
 def rgb(parts) -> str:
     color = "#"
     for part in parts:
@@ -18,6 +19,7 @@ def rgb(parts) -> str:
         color += part
     return color
 
+
 COLORS = list(product(range(63, 256, 64), range(63, 256, 64), range(63, 256, 64)))
 COLORS.sort(key=lambda x: -sum(x))
 COLORS = (None,) + tuple(map(rgb, COLORS))
@@ -26,10 +28,12 @@ tiles = [[0 for y in range(FIELD_HEIGHT)] for x in range(FIELD_WIDTH)]
 ids = [[(None, None) for y in range(FIELD_HEIGHT)] for x in range(FIELD_WIDTH)]
 free_tiles = FIELD_WIDTH * FIELD_HEIGHT
 
+
 def delete_tile(x: int, y: int) -> None:
     tiles[x][y] = 0
     CANVAS.delete(*ids[x][y])
     ids[x][y] = (None, None)
+
 
 def set_tile(x: int, y: int, tile_type: int) -> None:
     delete_tile(x, y)
@@ -39,6 +43,7 @@ def set_tile(x: int, y: int, tile_type: int) -> None:
     ids[x][y] = (CANVAS.create_rectangle(cx, cy, cx + CELL_SIDE, cy + CELL_SIDE, fill=COLORS[tile_type]),
                  CANVAS.create_text(cx + CELL_SIDE // 2, cy + CELL_SIDE // 2, text=str(2 ** tile_type), font="courier"))
 
+
 def create_random() -> None:
     global free_tiles
     place_delay = randint(1, free_tiles)
@@ -47,9 +52,10 @@ def create_random() -> None:
             if not tiles[x][y]:
                 place_delay -= 1
                 if not place_delay:
-                    set_tile(x, y, 1 if randint(0, 10) else 1)
+                    set_tile(x, y, 1 if randint(0, 10) else 2)
                     free_tiles -= 1
                     return
+
 
 def step(event: tkinter.Event) -> None:
     global free_tiles
@@ -137,8 +143,12 @@ def step(event: tkinter.Event) -> None:
                             set_tile(x, last, tiles[x][y])
                             if last != y:
                                 delete_tile(x, y)
+    else:
+        return
+    
     if (free_tiles):
         create_random()
+
 
 def main() -> None:
     MASTER.bind("<KeyPress>", step)
@@ -146,5 +156,5 @@ def main() -> None:
     MASTER.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
