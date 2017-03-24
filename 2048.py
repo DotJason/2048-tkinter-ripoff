@@ -2,9 +2,9 @@ import tkinter
 from random import randint
 from itertools import product
 
-CELL_SIDE = int(input("cell side in pixels:"))
-FIELD_WIDTH = int(input("field width in tiles:"))
-FIELD_HEIGHT = int(input("field height in tiles:"))
+CELL_SIDE = int(input("cell side in pixels: "))
+FIELD_WIDTH = int(input("field width in tiles: "))
+FIELD_HEIGHT = int(input("field height in tiles: "))
 MASTER = tkinter.Tk()
 MASTER.title("2048 tkinter ripoff")
 CANVAS = tkinter.Canvas(MASTER, bg="white", width=FIELD_WIDTH * CELL_SIDE + 1, height=FIELD_HEIGHT * CELL_SIDE + 1)
