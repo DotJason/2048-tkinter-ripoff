@@ -24,3 +24,6 @@ Try setting cell side to 1 and width/height to 1000 for an interesting result.
 
 # paint
 A very simple painter, includes straight lines, rectangles and ovals of adjustable color.
+
+# buttons
+The moment I discovered you can bind events to canvas items.
