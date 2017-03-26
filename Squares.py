@@ -1,6 +1,7 @@
 import tkinter
 
-SQUARES = 9
+
+SQUARES = int(input("depth: "))
 
 MASTER = tkinter.Tk()
 MASTER.title("Squares")
