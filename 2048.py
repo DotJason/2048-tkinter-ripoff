@@ -2,6 +2,7 @@ import tkinter
 from random import randint
 from itertools import product
 
+
 CELL_SIDE = int(input("cell side in pixels: "))
 FIELD_WIDTH = int(input("field width in tiles: "))
 FIELD_HEIGHT = int(input("field height in tiles: "))
