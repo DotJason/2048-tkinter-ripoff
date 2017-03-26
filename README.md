@@ -27,3 +27,6 @@ A very simple painter, includes straight lines, rectangles and ovals of adjustab
 
 # buttons
 The moment I discovered you can bind events to canvas items.
+
+# cbutton
+An upgraded Canvas class inheriting from original tkinter's. Now with buttons!
