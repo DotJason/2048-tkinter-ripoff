@@ -12,6 +12,7 @@ CANVAS.pack()
 
 SCATTER = int(input("color funkieness: "))
 
+
 def color_scatter(n: int) -> int:
     return n + randint(max(-SCATTER, -n), min(SCATTER, 255 - n))
 
