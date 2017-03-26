@@ -1,6 +1,5 @@
 import tkinter
 import tkinter.colorchooser
-from random import randint
 
 
 MASTER = tkinter.Tk()
