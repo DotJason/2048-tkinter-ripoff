@@ -8,7 +8,8 @@ FIELD_WIDTH = int(input("field width in tiles: "))
 FIELD_HEIGHT = int(input("field height in tiles: "))
 MASTER = tkinter.Tk()
 MASTER.title("2048 tkinter ripoff")
-CANVAS = tkinter.Canvas(MASTER, bg="white", width=FIELD_WIDTH * CELL_SIDE + 1, height=FIELD_HEIGHT * CELL_SIDE + 1)
+CANVAS = tkinter.Canvas(MASTER, bg="white", width=FIELD_WIDTH * CELL_SIDE + 1, height=FIELD_HEIGHT * CELL_SIDE + 1,
+                        bd=0, highlightthickness=0)
 
 
 def rgb(parts) -> str:
@@ -39,8 +40,8 @@ def delete_tile(x: int, y: int) -> None:
 def set_tile(x: int, y: int, tile_type: int) -> None:
     delete_tile(x, y)
     tiles[x][y] = tile_type
-    cx = 2 + x * CELL_SIDE
-    cy = 2 + y * CELL_SIDE
+    cx = x * CELL_SIDE
+    cy = y * CELL_SIDE
     ids[x][y] = (CANVAS.create_rectangle(cx, cy, cx + CELL_SIDE, cy + CELL_SIDE, fill=COLORS[tile_type]),
                  CANVAS.create_text(cx + CELL_SIDE // 2, cy + CELL_SIDE // 2, text=str(2 ** tile_type), font="courier"))
 
