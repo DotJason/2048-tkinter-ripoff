@@ -1,4 +1,4 @@
-## tkinter stuff
+# tkinter stuff
 Experiments with Python's Tkinter.
 
 Not licensed in any way.
@@ -30,3 +30,6 @@ The moment I discovered you can bind events to canvas items.
 
 # cbutton
 An upgraded Canvas class inheriting from original tkinter's. Now with buttons!
+
+# sokoban
+A classic sokoban game (without any levels included) with a level editor and ability to load/save levels
